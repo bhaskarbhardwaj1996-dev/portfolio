@@ -212,7 +212,7 @@
         });
     });
 
-    /* ============ MAGNETIC BUTTONS ============ */
+        /* ============ MAGNETIC BUTTONS ============ */
     // Move element 20% toward cursor
     document.querySelectorAll('.magnetic-btn').forEach((btn) => {
         btn.addEventListener('mousemove', (e) => {
@@ -225,6 +225,64 @@
             gsap.to(btn, { x: 0, y: 0, duration: 0.5, ease: 'elastic.out(1, 0.4)' });
         });
     });
+
+    /* ============ MOBILE HAMBURGER MENU ============ */
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuBackdrop = document.getElementById('mobile-menu-backdrop');
+    const menuPanel = document.getElementById('mobile-menu-panel');
+    const menuLinks = document.querySelectorAll('.mobile-menu-link');
+    const menuFooterEl = document.querySelector('.mobile-menu-footer');
+    let menuOpen = false;
+    let menuAnimating = false;
+
+    gsap.set(menuLinks, { y: 24, opacity: 0 });
+    gsap.set(menuFooterEl, { opacity: 0 });
+
+    function openMobileMenu() {
+        if (menuOpen || menuAnimating || !menuToggle) return;
+        menuAnimating = true;
+        menuOpen = true;
+        menuToggle.classList.add('menu-open');
+        menuToggle.setAttribute('aria-expanded', 'true');
+        mobileMenu.classList.remove('pointer-events-none');
+        mobileMenu.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('menu-open');
+
+        gsap.timeline({ onComplete: () => { menuAnimating = false; } })
+            .to(menuBackdrop, { opacity: 1, duration: 0.45, ease: 'power2.out' }, 0)
+            .to(menuLinks, { y: 0, opacity: 1, duration: 0.6, stagger: 0.06, ease: 'power3.out' }, 0.15)
+            .to(menuFooterEl, { opacity: 1, duration: 0.5, ease: 'power2.out' }, 0.4);
+    }
+
+    function closeMobileMenu() {
+        if (!menuOpen || menuAnimating || !menuToggle) return;
+        menuAnimating = true;
+        menuOpen = false;
+        menuToggle.classList.remove('menu-open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        document.body.classList.remove('menu-open');
+
+        gsap.timeline({
+            onComplete: () => {
+                mobileMenu.classList.add('pointer-events-none');
+                mobileMenu.setAttribute('aria-hidden', 'true');
+                gsap.set(menuLinks, { y: 24, opacity: 0 });
+                gsap.set(menuFooterEl, { opacity: 0 });
+                menuAnimating = false;
+            }
+        }).to(menuBackdrop, { opacity: 0, duration: 0.4, ease: 'power2.inOut' });
+    }
+
+    if (menuToggle) {
+        menuToggle.addEventListener('click', () => {
+            menuOpen ? closeMobileMenu() : openMobileMenu();
+        });
+        menuLinks.forEach((link) => link.addEventListener('click', closeMobileMenu));
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && menuOpen) closeMobileMenu();
+        });
+    }
 
     /* ============ SECTION 5: AI TERMINAL ============ */
     const terminalOutput = document.getElementById('terminal-output');
