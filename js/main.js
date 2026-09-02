@@ -255,24 +255,25 @@
             .to(menuFooterEl, { opacity: 1, duration: 0.5, ease: 'power2.out' }, 0.4);
     }
 
-    function closeMobileMenu() {
-        if (!menuOpen || menuAnimating || !menuToggle) return;
-        menuAnimating = true;
-        menuOpen = false;
-        menuToggle.classList.remove('menu-open');
-        menuToggle.setAttribute('aria-expanded', 'false');
-        document.body.classList.remove('menu-open');
+        function closeMobileMenu() {
+            if (!menuOpen || menuAnimating || !menuToggle) return;
+            menuAnimating = true;
+            menuOpen = false;
+            menuToggle.classList.remove('menu-open');
+            menuToggle.setAttribute('aria-expanded', 'false');
+            document.body.classList.remove('menu-open');
 
-        gsap.timeline({
-            onComplete: () => {
-                mobileMenu.classList.add('pointer-events-none');
-                mobileMenu.setAttribute('aria-hidden', 'true');
-                gsap.set(menuLinks, { y: 24, opacity: 0 });
-                gsap.set(menuFooterEl, { opacity: 0 });
-                menuAnimating = false;
-            }
-        }).to(menuBackdrop, { opacity: 0, duration: 0.4, ease: 'power2.inOut' });
-    }
+            gsap.timeline({
+                onComplete: () => {
+                    mobileMenu.classList.add('pointer-events-none');
+                    mobileMenu.setAttribute('aria-hidden', 'true');
+                    menuAnimating = false;
+                }
+            })
+                .to(menuFooterEl, { opacity: 0, duration: 0.25, ease: 'power2.in' }, 0)
+                .to(menuLinks, { y: 24, opacity: 0, duration: 0.35, stagger: 0.04, ease: 'power2.in' }, 0)
+                .to(menuBackdrop, { opacity: 0, duration: 0.45, ease: 'power2.inOut' }, 0.08);
+        }
 
     if (menuToggle) {
         menuToggle.addEventListener('click', () => {
