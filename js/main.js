@@ -396,7 +396,7 @@
         skills: 'WordPress, PHP, JavaScript, WooCommerce, Shopify, REST APIs, HTML, CSS, Git, performance optimization, Core Web Vitals, technical SEO, custom themes, custom plugins and API integrations.',
         experience: '4+ years of experience in web development, with a strong focus on WordPress, WooCommerce, Shopify, PHP, JavaScript, responsive development, integrations, performance optimization and troubleshooting.',
         contact: 'LinkedIn: https://www.linkedin.com/in/bhaskar-bhardwaj-/',
-        about: "Bhaskar Bhardwaj — WordPress & Web Engineer. Web Developer with 4+ years of experience building, customizing and maintaining WordPress, WooCommerce, Shopify and business websites, with experience in PHP, JavaScript, HTML, CSS, API integrations, website performance, Core Web Vitals, technical SEO, responsive development, troubleshooting and website maintenance.",
+        about: "Bhaskar Bhardwaj — Web Platform Engineer specializing in WordPress-powered content platforms, APIs, performance and modern web delivery. 4+ years of experience building, customizing and maintaining WordPress, WooCommerce, Shopify and business websites, with experience in PHP, JavaScript, HTML, CSS, API integrations, website performance, Core Web Vitals, technical SEO, responsive development, troubleshooting and website maintenance.",
         help: 'Available commands: help, skills, experience, projects, contact, about, clear.',
         projects: PROJECTS.map((p, i) => `${i + 1}. ${p.name} — ${p.note} — ${p.url}`).join('\n')
     };
