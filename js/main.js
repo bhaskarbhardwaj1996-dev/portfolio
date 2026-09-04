@@ -361,7 +361,7 @@
                         var p = slideEl.progress;
 
                         var absP = Math.min(Math.abs(p), 3);
-                        var scale = 1.45 - absP * 0.3;
+                        var scale = 1.12 - absP * 0.26;
                         var rotateY = p * -16;
                         var translateX = p * -6;
                         var opacity = 1 - absP * 0.32;
