@@ -304,20 +304,13 @@
         var wrapper = document.getElementById('projectSwiperWrapper');
         if (!wrapper) return;
 
-        var slidesHtml = PROJECTS.map(function (p, i) {
-            var num = String(i + 1).padStart(2, '0');
+        var slidesHtml = PROJECTS.map(function (p) {
             return (
-                '<a href="' + p.url + '" target="_blank" rel="noopener" class="swiper-slide project-slide">' +
+                '<a href="' + p.url + '" target="_blank" rel="noopener" class="swiper-slide project-slide" aria-label="Visit ' + p.name + '">' +
                     '<div class="project-slide__image">' +
-                        '<img src="' + p.img + '" alt="' + p.name + ' website" loading="lazy">' +
-                        '<div class="project-slide__overlay"></div>' +
+                        '<img src="' + p.img + '" alt="' + p.name + ' website screenshot" loading="lazy">' +
                     '</div>' +
-                    '<div class="project-slide__content">' +
-                        '<span class="project-slide__num">' + num + '</span>' +
-                        '<h3 class="project-slide__title">' + p.name + '</h3>' +
-                        '<p class="project-slide__note">' + p.note + '</p>' +
-                        '<span class="project-slide__link">Visit Site <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i></span>' +
-                    '</div>' +
+                    '<span class="project-slide__badge"><i data-lucide="arrow-up-right" class="w-4 h-4"></i></span>' +
                 '</a>'
             );
         }).join('');
