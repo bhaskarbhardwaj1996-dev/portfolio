@@ -291,11 +291,12 @@
 
     // Real project data — used only by the `projects` command.
     // Keep in sync with the Selected Work section; do not invent entries.
-        const PROJECTS = [
-        { name: 'True Marketing Talk', url: 'https://truemarketingtalk.com/', note: 'Marketing website — WordPress', img: 'images/project-truemarketingtalk.jpg' },
-        { name: 'Edot Solutions', url: 'https://edotsolutions.in/home/', note: 'Business website — WordPress', img: 'images/project-edotsolutions.jpg' },
-        { name: 'Chahana Jewel Co.', url: 'https://chahanajewelco.com/', note: 'Jewellery e-commerce — Shopify', img: 'images/project-chahanajewelco.jpg' },
-        { name: 'Noorvyaa', url: 'https://noorvyaa.com/', note: 'Jewellery e-commerce — Shopify', img: 'images/project-noorvyaa.jpg' }
+    const PROJECTS = [
+        { name: 'Noorvyaa', url: 'https://noorvyaa.com/', note: 'Jewellery Brand — E-commerce', img: 'images/project-noorvyaa.png' },
+        { name: 'True Marketing Talk', url: 'https://truemarketingtalk.com/', note: 'Digital Marketing Agency', img: 'images/project-truemarketing.png' },
+        { name: 'Chahana Jewel Co.', url: 'https://chahanajewelco.com/', note: 'Jewellery Brand — E-commerce', img: 'images/project-chahana.png' },
+        { name: 'Edot Solutions', url: 'https://edotsolutions.in/home/', note: 'Real Estate Digital Marketing Company', img: 'images/project-edot.png' },
+        { name: 'AJTB Bengal', url: 'https://ajtbengal.com/', note: 'Real Estate Project Website', img: 'images/project-ajtbengal.png' }
     ];
 
     /* ============ SECTION 4: PROJECTS COVERFLOW SLIDER ============ */
